@@ -1,11 +1,12 @@
 import React from "react";
 import Input from "../form/Input";
 
+
 interface Props {}
 
 const Form = (props: Props) => {
   return (
-    <form>
+    <form action="#" noValidate>
       <Input period="Day" name="dayInput" placeholder="DD" min={1} max={31} />
       <Input
         period="Month"
@@ -22,10 +23,13 @@ const Form = (props: Props) => {
         max={2023}
       />
       <button>
-        <img src="/icon-arrow.svg" alt="Arrow Icon" />
+        SUBMIT
       </button>
     </form>
   );
 };
 
 export default Form;
+
+
+
