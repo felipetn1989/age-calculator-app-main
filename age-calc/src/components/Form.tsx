@@ -1,30 +1,52 @@
-import React from "react";
+import React, { ChangeEvent, FormEvent } from "react";
 import Input from "../form/Input";
+
+import { IDate } from "../interfaces/IDate";
 
 import arrow from "./arrow.svg";
 
-interface Props {}
+interface Props {
+  dateObj: IDate;
+  setDateObj: React.Dispatch<React.SetStateAction<IDate>>;
+  calculateTime(e: FormEvent<HTMLFormElement>): void
+  handleDate(e: ChangeEvent<HTMLInputElement>): void 
+}
 
-const Form = (props: Props) => {
+const Form = ({ dateObj, setDateObj, calculateTime, handleDate }: Props) => {
+  const currYear = new Date().getFullYear();
+
   return (
-    <form action="#" noValidate>
-      <Input period="Day" name="dayInput" placeholder="DD" min={1} max={31} />
+    <form onSubmit={calculateTime} action="#" noValidate>
+      <Input
+        period="Day"
+        name="day"
+        placeholder="DD"
+        min={1}
+        max={31}
+        handleChange={handleDate}
+      />
       <Input
         period="Month"
-        name="monthInput"
+        name="month"
         placeholder="MM"
         min={1}
         max={12}
+        handleChange={handleDate}
       />
       <Input
         period="Year"
-        name="yearInput"
+        name="year"
         placeholder="YYYY"
         min={1}
-        max={2023}
+        max={currYear}
+        handleChange={handleDate}
       />
       <button>
-        <img className="bg-[#854dff] rounded-full w-12 p-3" src={arrow} alt="Arrow Icon" />
+        <img
+          className="bg-[#854dff] rounded-full w-12 p-3"
+          src={arrow}
+          alt="Arrow Icon"
+        />
       </button>
     </form>
   );

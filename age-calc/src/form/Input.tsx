@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 
 interface Props {
   period: string;
@@ -6,9 +6,10 @@ interface Props {
   placeholder: string;
   min: number;
   max: number;
+  handleChange(e: React.ChangeEvent<HTMLInputElement>): void 
 }
 
-const Input = ({ period, name, placeholder, min, max }: Props) => {
+const Input = ({ period, name, placeholder, min, max, handleChange }: Props) => {
   return (
     <div>
       <label htmlFor={name}>{period}</label>
@@ -19,6 +20,7 @@ const Input = ({ period, name, placeholder, min, max }: Props) => {
         placeholder={placeholder}
         min={min}
         max={max}
+        onChange={handleChange}
       />
     </div>
   );
