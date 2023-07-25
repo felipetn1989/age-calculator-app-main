@@ -16,9 +16,11 @@ const Main = (props: Props) => {
   function calculateTime(e: FormEvent<HTMLFormElement>): void {
     e.preventDefault();
 
-    const currDate = new Date();
+    const currDate = new Date().toISOString().slice(0, 10);
 
-    const selectedDate = new Date(
+    console.log(currDate);
+
+    /*     const selectedDate = new Date(
       `${dateObj.month}/${dateObj.day}/${dateObj.year}`
     );
 
@@ -27,16 +29,14 @@ const Main = (props: Props) => {
     let totalDays = Math.floor(difference / (1000 * 60 * 60 * 24));
 
     let displayYears = Math.floor(totalDays / 365);
-    console.log("rest " + (totalDays % 365));
     let displayMonths = Math.floor((totalDays % 365) / 31);
-    console.log("rest " + ((totalDays % 365) % 31));
-    let displayDays = (totalDays % 365) % 31;
+    let displayDays = Math.floor((totalDays % 365) % 31);
 
     setDiffObj({
       year: displayYears,
       month: displayMonths,
       day: displayDays,
-    });
+    }); */
   }
 
   function handleDate(e: ChangeEvent<HTMLInputElement>): void {
@@ -45,7 +45,7 @@ const Main = (props: Props) => {
   }
 
   return (
-    <main>
+    <main className="bg-white rounded-t-3xl rounded-bl-3xl">
       <Form
         dateObj={dateObj}
         setDateObj={setDateObj}

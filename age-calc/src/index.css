@@ -2,31 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap");
+
 :root {
   /* ### Primary */
 
---Purple: #854dff
---Light-red: hsl(0, 100%, 67%);
+  --Purple: #854dff;
+  --Light-red: hsl(0, 100%, 67%);
 
-/* ### Neutral */
+  /* ### Neutral */
 
---White: hsl(0, 0%, 100%);
---Off-white: hsl(0, 0%, 94%);
---Light-grey: hsl(0, 0%, 86%);
---Smokey-grey: hsl(0, 1%, 44%);
---Off-black: hsl(0, 0%, 8%);
+  --White: #ffffff;
+  --Off-white: #f0f0f0;
+  --Light-grey: hsl(0, 0%, 86%);
+  --Smokey-grey: #716f6f;
+  --Off-black: hsl(0, 0%, 8%);
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f0f0;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

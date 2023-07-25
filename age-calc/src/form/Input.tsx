@@ -7,13 +7,15 @@ interface Props {
   min: number;
   max: number;
   handleChange(e: React.ChangeEvent<HTMLInputElement>): void 
+  size: string
 }
 
-const Input = ({ period, name, placeholder, min, max, handleChange }: Props) => {
+const Input = ({ period, name, placeholder, min, max, handleChange, size }: Props) => {
   return (
-    <div>
-      <label htmlFor={name}>{period}</label>
+    <div className="flex flex-col">
+      <label className="text-[#716f6f] uppercase" htmlFor={name}>{period}</label>
       <input
+      className={size}
         type="number"
         name={name}
         id={name}
