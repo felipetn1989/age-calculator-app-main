@@ -16,28 +16,24 @@ const Main = (props: Props) => {
   function calculateTime(e: FormEvent<HTMLFormElement>): void {
     e.preventDefault();
 
-    let currDate = new Date();
+    const currDate = new Date();
 
-    let selectedDate = new Date(
+    const selectedDate = new Date(
       `${dateObj.month}/${dateObj.day}/${dateObj.year}`
     );
 
     let difference = currDate.getTime() - selectedDate.getTime();
 
-    console.log(difference);
+    let totalDays = Math.floor(difference / (1000 * 60 * 60 * 24));
+
+    let displayYears = Math.floor(totalDays / 365);
+    let displayMonths;
+    let displayDays;
 
     setDiffObj({
-      year: Math.floor(difference / (1000 * 60 * 60 * 24 * 365)),
-      month: Math.floor(
-        (difference - diffObj.year! * 365 * 24 * 60 * 60 * 1000) /
-          (1000 * 60 * 60 * 24 * 30)
-      ),
-      day: Math.floor(
-        (difference -
-          (diffObj.year! * 365 * 24 * 60 * 60 * 1000 +
-            diffObj.month! * 30 * 24 * 60 * 60 * 1000)) /
-          (1000 * 60 * 60 * 24)
-      ),
+      year: displayYears,
+      month: displayMonths,
+      day: displayDays,
     });
   }
 
