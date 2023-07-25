@@ -27,8 +27,10 @@ const Main = (props: Props) => {
     let totalDays = Math.floor(difference / (1000 * 60 * 60 * 24));
 
     let displayYears = Math.floor(totalDays / 365);
-    let displayMonths;
-    let displayDays;
+    console.log("rest " + (totalDays % 365));
+    let displayMonths = Math.floor((totalDays % 365) / 31);
+    console.log("rest " + ((totalDays % 365) % 31));
+    let displayDays = (totalDays % 365) % 31;
 
     setDiffObj({
       year: displayYears,

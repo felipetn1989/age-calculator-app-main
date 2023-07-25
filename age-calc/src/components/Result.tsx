@@ -9,9 +9,9 @@ interface Props {
 const Result = ({ timeYears, timeMonths, timeDays }: Props) => {
   return (
     <div>
-      <p>{timeYears ? timeYears : "--"} years</p>
-      <p>{timeMonths ? timeMonths : "--"} months</p>
-      <p>{timeDays ? timeDays : "--"} days</p>
+      <p>{timeYears !== undefined ? timeYears : "--"} years</p>
+      <p>{timeMonths !== undefined ? timeMonths : "--"} months</p>
+      <p>{timeDays !== undefined ? timeDays : "--"} days</p>
     </div>
   );
 };
