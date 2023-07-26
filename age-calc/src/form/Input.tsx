@@ -12,10 +12,10 @@ interface Props {
 
 const Input = ({ period, name, placeholder, min, max, handleChange, size }: Props) => {
   return (
-    <div className="flex flex-col">
-      <label className="text-[#716f6f] uppercase" htmlFor={name}>{period}</label>
+    <div className="flex flex-col gap-1.5">
+      <label className="text-[#716f6f] uppercase text-xs tracking-[0.25rem]" htmlFor={name}>{period}</label>
       <input
-      className={size}
+      className={`${size} border border-black text-xl pl-4`}
         type="number"
         name={name}
         id={name}

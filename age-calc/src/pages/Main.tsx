@@ -45,7 +45,7 @@ const Main = (props: Props) => {
   }
 
   return (
-    <main className="bg-white rounded-t-3xl rounded-bl-3xl">
+    <main className="bg-white rounded-t-3xl rounded-bl-3xl px-6 py-12">
       <Form
         dateObj={dateObj}
         setDateObj={setDateObj}

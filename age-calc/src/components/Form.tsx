@@ -16,7 +16,7 @@ const Form = ({ dateObj, setDateObj, calculateTime, handleDate }: Props) => {
   const currYear = new Date().getFullYear();
 
   return (
-    <form className="grid" onSubmit={calculateTime} action="#" noValidate>
+    <form className="grid gap-8" onSubmit={calculateTime} action="#" noValidate>
       <div className="flex justify-between">
         <Input
           period="Day"
@@ -25,7 +25,7 @@ const Form = ({ dateObj, setDateObj, calculateTime, handleDate }: Props) => {
           min={1}
           max={31}
           handleChange={handleDate}
-          size="w-10"
+          size="w-[5.75rem] h-[3.375rem]"
         />
         <Input
           period="Month"
@@ -34,7 +34,7 @@ const Form = ({ dateObj, setDateObj, calculateTime, handleDate }: Props) => {
           min={1}
           max={12}
           handleChange={handleDate}
-          size="w-10"
+          size="w-[5.75rem] h-[3.375rem]"
         />
         <Input
           period="Year"
@@ -43,16 +43,19 @@ const Form = ({ dateObj, setDateObj, calculateTime, handleDate }: Props) => {
           min={1}
           max={currYear}
           handleChange={handleDate}
-          size="w-10"
+          size="w-[5.75rem] h-[3.375rem]"
         />
       </div>
-      <button className="m-auto">
-        <img
-          className="bg-[#854dff] rounded-full w-12 p-3"
-          src={arrow}
-          alt="Arrow Icon"
-        />
-      </button>
+      <div className="relative w-full flex flex-col ">
+        <div className="absolute top-8 w-full h-1 border-t border-[#716f6f]"></div>
+        <button className="m-auto z-10">
+          <img
+            className="bg-[#854dff] rounded-full w-16 p-5"
+            src={arrow}
+            alt="Arrow Icon"
+          />
+        </button>
+      </div>
     </form>
   );
 };
