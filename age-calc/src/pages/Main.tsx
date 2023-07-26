@@ -18,25 +18,25 @@ const Main = (props: Props) => {
 
     const currDate = new Date().toISOString().slice(0, 10);
 
-    console.log(currDate);
+    const selectedDate = `${dateObj.year}-${dateObj.month}-${dateObj.day}`;
 
-    /*     const selectedDate = new Date(
-      `${dateObj.month}/${dateObj.day}/${dateObj.year}`
-    );
+    let yearDiff = new Date().getFullYear() - dateObj.year!;
 
-    let difference = currDate.getTime() - selectedDate.getTime();
+    let monthDiff = new Date().getMonth() + 1 - dateObj.month!;
 
-    let totalDays = Math.floor(difference / (1000 * 60 * 60 * 24));
+    let dayDiff = new Date().getDate() - dateObj.day!;
 
-    let displayYears = Math.floor(totalDays / 365);
-    let displayMonths = Math.floor((totalDays % 365) / 31);
-    let displayDays = Math.floor((totalDays % 365) % 31);
+    if (dayDiff < 0) {
+      dayDiff += 31;
+      monthDiff--;
+    }
 
-    setDiffObj({
-      year: displayYears,
-      month: displayMonths,
-      day: displayDays,
-    }); */
+    if (monthDiff < 0) {
+      monthDiff += 12;
+      yearDiff--;
+    }
+
+    setDiffObj({ day: dayDiff, month: monthDiff, year: yearDiff });
   }
 
   function handleDate(e: ChangeEvent<HTMLInputElement>): void {
